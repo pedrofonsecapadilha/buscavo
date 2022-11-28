@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :drivers
+  devise_for :admins, controllers: { registrations: "admins/registrations", sessions: "admins/sessions",
+                                     passwords: "admins/passwords" }
   root to: "pages#home"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
 end
