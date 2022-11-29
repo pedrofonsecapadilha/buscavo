@@ -5,6 +5,16 @@
 
   <div class="form-inputs">
     <%= f.input :email, required: true, autofocus: true %>
+    <%= f.input :first_name, autofocus: true %>
+    <%= f.input :last_name, autofocus: true %>
+    <%= f.input :phone_number, autofocus: true %>
+    <%= f.input :credit_card_name, autofocus: true %>
+    <%= f.input :credit_card_number, autofocus: true %>
+    <%= f.input :credit_card_date, autofocus: true %>
+    <%= f.input :credit_card_security, autofocus: true %>
+    <%= f.input :user_first_name, autofocus: true %>
+    <%= f.input :user_last_name, autofocus: true %>
+    <%= f.input :user_phone_number, autofocus: true %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
@@ -24,12 +34,12 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+    <%= f.button :submit, "Update", class: "btn btn-success" %>
   </div>
 <% end %>
 
 <h3>Cancel my account</h3>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p>Unhappy? <%= link_to "Cancel my account", admin_registration_path, data: { "turbo-confirm": "Are you sure?", "turbo-method": :delete }, class: "btn btn-danger" %></p>
 
-<%= link_to "Back", :back %>
+<%= link_to "Back", :back, class: "btn btn-sm btn-primary" %>
