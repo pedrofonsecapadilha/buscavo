@@ -14,7 +14,7 @@
         <% if admin_signed_in? %>
          <%= render "navbar_admin" %>
          <% elsif driver_signed_in? %>
-           <%= render "navbar_admin" %>
+           <%= render "navbar_driver" %>
         <% else %>
           <li class="nav-item">
             <%= link_to "Sign-in", new_admin_session_path, class: "nav-link text-white" %>
