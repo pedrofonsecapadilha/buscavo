@@ -4,8 +4,13 @@ Rails.application.routes.draw do
   devise_for :admins, controllers: { registrations: "admins/registrations", sessions: "admins/sessions",
                                      passwords: "admins/passwords" }
 
+  root to: "pages#landing"
+  
+
+
   resource :admins, only: [:show]
 
-  root to: "pages#home"
+ 
   resources :drivers, except: [:edit, :update, :create, :new]
+
 end
