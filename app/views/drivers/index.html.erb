@@ -1,0 +1,17 @@
+<h1><strong> This is your Driver Profile: </h1>
+
+<h4><strong>First Name: </strong> <%= @driver.first_name %></h4>
+
+<h4><strong>Last Name:  </strong><%= @driver.last_name %></h4>
+
+<h4><strong>Phone Number: </strong><%= @driver.phone_number %></h4>
+
+<h4><strong>Email:</strong>   <%= @driver.email %></h4>
+
+<h4><strong>Wallet: $</strong></h4>
+
+<h3><strong> Yours lasts rides</strong> = (**colocar aqui ultimas corridas**) </h3>
+
+<h3><strong> Reviews </strong>= ( ** colocolocar aqui review ***) </h3>
+
+<%= link_to 'Edit or Delete Driver Profile', edit_driver_registration_path, class: 'btn btn-danger mt-3' %>
