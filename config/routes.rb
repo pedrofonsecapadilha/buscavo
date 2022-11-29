@@ -3,6 +3,9 @@ Rails.application.routes.draw do
     passwords: "drivers/passwords" }
   devise_for :admins, controllers: { registrations: "admins/registrations", sessions: "admins/sessions",
                                      passwords: "admins/passwords" }
+
+  resource :admins, only: [:show]
+
   root to: "pages#home"
   resources :drivers, except: [:edit, :update, :create, :new]
 end
