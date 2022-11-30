@@ -24,4 +24,8 @@ class Admins::RegistrationsController < Devise::RegistrationsController
     admins_path(resource)
   end
 
+  def after_sign_up_path_for(resource)
+    admins_path(resource)
+  end
+
 end
