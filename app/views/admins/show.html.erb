@@ -1,20 +1,75 @@
-<h1>Profile Page</h1>
+<div class="container py-5">
+    <div class="row">
+      <div class="col">
+        <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
 
-<h3>Account Info</h3>
-<h5><strong>email: </strong><%= current_admin.email %></h5>
-<h5><strong>First name: </strong><%= current_admin.first_name %></h5>
-<h5><strong>Last name: </strong><%= current_admin.last_name %></h5>
-<h5><strong>Phone number: </strong><%= current_admin.phone_number %></h5>
-
-<h3>Payment Info</h3>
-<h5><strong>Credit card name: </strong><%= current_admin.credit_card_name %></h5>
-<h5><strong>Credit card number: </strong><%= current_admin.credit_card_number %></h5>
-<h5><strong>Credit card date: </strong><%= current_admin.credit_card_date %></h5>
-<h5><strong>Credit card security: </strong><%= current_admin.credit_card_security %></h5>
-
-<h3>User Info</h3>
-<h5><strong>User first name: </strong><%= current_admin.user_first_name %></h5>
-<h5><strong>User last name: </strong><%= current_admin.user_last_name %></h5>
-<h5><strong>User phone number: </strong><%= current_admin.user_phone_number %></h5>
-
-<%= link_to 'Edit', edit_admin_registration_path, class: 'btn btn-primary' %>
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card mb-4">
+          <div class="card-body text-center">
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+              class="rounded-circle img-fluid" style="width: 150px;">
+            <h5 class="my-3"><%= "#{current_admin.first_name} #{current_admin.last_name}" %></h5>
+            <p class="text-muted mb-1">Administrator</p>
+            <div class="d-flex justify-content-center mt-2 mb-2">
+              <%= link_to 'Edit profile', edit_admin_registration_path, class: 'btn btn-outline-primary' %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Email:</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0"><%= current_admin.email %></p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Phone:</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0"><%= current_admin.phone_number %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card mb-4 mb-md-0">
+              <div class="card text-center" style="width: 100%;">
+                <div class="card-body">
+                  <h4 class="card-title">Payments</h4>
+                  <p class="card-text"></p>
+                  <%= link_to '+ Add New Credit Card', payments_path, class: 'btn btn-sm btn-primary' %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card mb-4 mb-md-0">
+              <div class="card text-center" style="width: 100%;">
+                <div class="card-body">
+                  <h4 class="card-title">User</h4>
+                  <p class="card-text"></p>
+                 <%= link_to '+ Add New User', user_path, class: 'btn btn-sm btn-primary' %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

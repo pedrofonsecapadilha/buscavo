@@ -1,0 +1,22 @@
+
+
+<%= simple_form_for(@admin, as: :admin, url: registration_path(:admin), html: { method: :put }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :credit_card_name, autofocus: true %>
+    <%= f.input :credit_card_number, autofocus: true %>
+    <%= f.input :credit_card_date, autofocus: true %>
+    <%= f.input :credit_card_security, autofocus: true %>
+
+
+    <%= f.input :current_password,
+                hint: "we need your current password to confirm your changes",
+                required: true,
+                input_html: { autocomplete: "current-password" } %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Update", class: "btn btn-success" %>
+  </div>
+<% end %>
