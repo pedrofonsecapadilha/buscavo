@@ -4,7 +4,8 @@ Rails.application.routes.draw do
 
   resource :admins, only: [:show]
   resources :drivers, except: [:edit, :update, :create, :new]
-
+  resource :users
+  resources :rides
   root to: "pages#landing"
 
 end
