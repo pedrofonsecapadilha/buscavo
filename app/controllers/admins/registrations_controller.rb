@@ -1,4 +1,5 @@
 class Admins::RegistrationsController < Devise::RegistrationsController
+  before_action :authenticate_admin!
   before_action :configure_permitted_parameters
 
   private
