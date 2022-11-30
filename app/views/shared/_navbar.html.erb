@@ -1,7 +1,19 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "buscavo.png" %>
+
+    <% if admin_signed_in? %>
+      <%= link_to admins_path, class: "navbar-brand" do %>
+        <%= image_tag "buscavo.png" %>
+      <% end %>
+    <% elsif driver_signed_in? %>
+      <%= link_to drivers_path, class: "navbar-brand" do %>
+        <%= image_tag "buscavo.png" %>
+      <% end %>
+    <% else %>
+      <%= link_to root_path, class: "navbar-brand" do %>
+        <%= image_tag "buscavo.png" %>
+      <% end %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,9 +24,9 @@
       <ul class="navbar-nav me-auto">
 
         <% if admin_signed_in? %>
-         <%= render "shared/navbar_admin" %>
-         <% elsif driver_signed_in? %>
-           <%= render "shared/navbar_driver" %>
+          <%= render "shared/navbar_admin" %>
+        <% elsif driver_signed_in? %>
+          <%= render "shared/navbar_driver" %>
         <% else %>
           <li class="nav-item text-white ">
            <h6>Sign-up: </h6>
@@ -28,5 +40,6 @@
         <% end %>
       </ul>
     </div>
+
   </div>
 </div>
