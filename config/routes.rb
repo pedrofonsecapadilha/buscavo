@@ -9,6 +9,11 @@ Rails.application.routes.draw do
     get :user, to: "admins#user"
   end
 
+  resource :admins, only: [:show]
+  resources :drivers, except: [:edit, :update, :create, :new]
+  resource :users
+  resources :rides
+
   root to: "pages#landing"
 
   resource :admins, only: :show
