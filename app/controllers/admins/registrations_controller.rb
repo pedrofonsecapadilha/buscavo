@@ -19,6 +19,14 @@ class Admins::RegistrationsController < Devise::RegistrationsController
                                                               :user_phone_number])
   end
 
+  def payments
+    render :payments
+  end
+
+  def user
+    render :user
+  end
+
   protected
 
   def after_update_path_for(resource)

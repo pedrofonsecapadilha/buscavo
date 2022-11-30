@@ -8,13 +8,7 @@
     <%= f.input :first_name, autofocus: true %>
     <%= f.input :last_name, autofocus: true %>
     <%= f.input :phone_number, autofocus: true %>
-    <%= f.input :credit_card_name, autofocus: true %>
-    <%= f.input :credit_card_number, autofocus: true %>
-    <%= f.input :credit_card_date, autofocus: true %>
-    <%= f.input :credit_card_security, autofocus: true %>
-    <%= f.input :user_first_name, autofocus: true %>
-    <%= f.input :user_last_name, autofocus: true %>
-    <%= f.input :user_phone_number, autofocus: true %>
+
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
