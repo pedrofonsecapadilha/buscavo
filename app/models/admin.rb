@@ -5,6 +5,7 @@ class Admin < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :user, dependent: :destroy
   after_commit :create_parent
+
   def create_parent
     User.create(phone_number: user_phone_number, admin: self, first_name: user_first_name, last_name: user_last_name)
   end
