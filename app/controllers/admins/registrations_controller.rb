@@ -16,7 +16,16 @@ class Admins::RegistrationsController < Devise::RegistrationsController
                                                               :credit_card_security,
                                                               :user_first_name,
                                                               :user_last_name,
-                                                              :user_phone_number])
+                                                              :user_phone_number,
+                                                              :photo])
+  end
+
+  def payments
+    render :payments
+  end
+
+  def user
+    render :user
   end
 
   protected
