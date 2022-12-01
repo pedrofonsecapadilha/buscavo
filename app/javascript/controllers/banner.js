@@ -11,6 +11,7 @@
   AOS.refresh();
 });*/
 
+
 // $(window).on("scroll", function() {
 //   const $this = $(this);
 //   if ($this.scrollTop() + $this.height() == $(document).height()) {
@@ -24,3 +25,4 @@
 //   $("html, body").animate({ scrollTop: 0 }, "slow");
 //   return false;
 // });
+

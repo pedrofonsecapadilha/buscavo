@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema[7.0].define(version: 2022_12_01_174524) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -80,6 +82,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_174524) do
     t.index ["reset_password_token"], name: "index_drivers_on_reset_password_token", unique: true
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.integer "stars"
+    t.bigint "driver_id", null: false
+    t.bigint "admin_id", null: false
+    t.bigint "ride_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["admin_id"], name: "index_reviews_on_admin_id"
+    t.index ["driver_id"], name: "index_reviews_on_driver_id"
+    t.index ["ride_id"], name: "index_reviews_on_ride_id"
+  end
+
   create_table "rides", force: :cascade do |t|
     t.string "start_address"
     t.string "end_address"
@@ -102,8 +117,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_174524) do
     t.index ["admin_id"], name: "index_users_on_admin_id"
   end
 
+
+  add_foreign_key "reviews", "admins"
+  add_foreign_key "reviews", "drivers"
+  add_foreign_key "reviews", "rides"
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+
   add_foreign_key "rides", "drivers"
   add_foreign_key "rides", "users"
   add_foreign_key "users", "admins"
