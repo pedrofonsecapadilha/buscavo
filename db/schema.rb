@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_29_192915) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_01_175242) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,14 +52,25 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_192915) do
     t.index ["reset_password_token"], name: "index_drivers_on_reset_password_token", unique: true
   end
 
+  create_table "notifies", force: :cascade do |t|
+    t.string "content"
+    t.bigint "user_id", null: false
+    t.bigint "ride_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ride_id"], name: "index_notifies_on_ride_id"
+    t.index ["user_id"], name: "index_notifies_on_user_id"
+  end
+
   create_table "rides", force: :cascade do |t|
     t.string "start_address"
     t.string "end_address"
     t.decimal "price"
     t.bigint "user_id", null: false
-    t.bigint "driver_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "user_phone_number"
+    t.bigint "driver_id"
     t.index ["driver_id"], name: "index_rides_on_driver_id"
     t.index ["user_id"], name: "index_rides_on_user_id"
   end
@@ -74,6 +85,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_192915) do
     t.index ["admin_id"], name: "index_users_on_admin_id"
   end
 
+  add_foreign_key "notifies", "rides"
+  add_foreign_key "notifies", "users"
   add_foreign_key "rides", "drivers"
   add_foreign_key "rides", "users"
   add_foreign_key "users", "admins"

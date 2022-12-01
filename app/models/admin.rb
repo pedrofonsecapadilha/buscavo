@@ -4,7 +4,7 @@ class Admin < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :user, dependent: :destroy
-  after_commit :create_parent
+  after_create :create_parent
 
   def create_parent
     User.create(phone_number: user_phone_number, admin: self, first_name: user_first_name, last_name: user_last_name)
