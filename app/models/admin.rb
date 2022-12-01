@@ -7,6 +7,7 @@ class Admin < ApplicationRecord
   has_many :rides, through: :users
   has_many :reviews, dependent: :destroy
   after_commit :create_parent
+  has_one_attached :photo
 
   def create_parent
     User.create(phone_number: user_phone_number, admin: self, first_name: user_first_name, last_name: user_last_name)
