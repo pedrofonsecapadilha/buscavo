@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :drivers, except: [:edit, :update, :create, :new]
   resource :users
   resources :rides
+  resources :reviews
 
   root to: "pages#landing"
 
