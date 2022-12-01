@@ -8,6 +8,7 @@
     <%= f.input :first_name, autofocus: true %>
     <%= f.input :last_name, autofocus: true %>
     <%= f.input :phone_number, autofocus: true %>
+    <%= f.input :photo, as: :file %>
 
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
