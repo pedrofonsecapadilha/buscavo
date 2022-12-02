@@ -92,6 +92,11 @@
                 <div class="card-body">
                   <h4 class="card-title">User</h4>
                   <p class="card-text">Name: <%= "#{@admin.user_first_name} #{@admin.user_last_name}" %></p>
+                  <p class="card-text">Phone: <%= @admin.user_phone_number %></p>
+                  <div data-controller="clipboard" data-clipboard-feedback-text-value="Copied!">
+                    <input data-clipboard-target="input" type="text" value="http://localhost:3000/home?refeer=<%=@admin.id%>" readonly>
+                    <button class="btn btn-sm btn-outline-primary" data-action="click->clipboard#copy"><i class="fa-regular fa-copy"></i></button>
+                  </div>
                  <%= link_to 'Edit User', user_path, class: 'btn btn-sm btn-primary' %>
                 </div>
               </div>
