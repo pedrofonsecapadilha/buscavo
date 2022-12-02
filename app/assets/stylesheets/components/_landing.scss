@@ -1,14 +1,9 @@
-// :root {
-//   --black: black;
-//   --rose: #e91e63;
+
+// p {
+//   font-size: 20px;
+//   line-height: 35px;
+//   margin: 30px 0 0 0;
 // }
-
-
-p {
-  font-size: 20px;
-  line-height: 35px;
-  margin: 30px 0 0 0;
-}
 
 #banner-section::after {
   content: '';
@@ -20,14 +15,21 @@ p {
   background: rgba(0, 0, 0, 0.25);
 }
 
+.banner-p {
+  color: $beige;
+  background: rgba(0, 0, 0, 0.368);
+  border-radius: 5px;
+  h3 {
+    color: $ice;
+  }
+}
+
+
 
 
 #banner-section {
   padding: 300px 0;
   background-size: cover;
-  .container {
-    z-index: 1;
-  }
 }
 
 .section {
@@ -35,11 +37,14 @@ p {
 }
 
 main {
-
   padding: 50px 0 0 0;
   background-color: $white;
   margin-top: 0 auto;
   top: 80px;
+  p {
+    text-align: justify;
+    margin: 30px 0 0 0;
+  }
 }
 
 .nav-pills .nav-item:not(:last-child) {
@@ -59,6 +64,10 @@ main {
   padding: 10px 15px;
   text-align: center;
   border-radius: 4px;
+}
+
+#pills-tabContent {
+  text-align: justify;
 }
 .nav-pills .nav-item .nav-link.active {
   color: $white;
