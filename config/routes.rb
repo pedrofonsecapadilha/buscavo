@@ -21,4 +21,8 @@ Rails.application.routes.draw do
 
   resources :drivers, except: %i[edit update create new]
 
+  resources :notifies, only: :create
+
+  get "/home", to: "users#home", as: "home"
+
 end

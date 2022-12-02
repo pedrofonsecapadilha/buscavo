@@ -4,6 +4,7 @@ class Admin < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :user, dependent: :destroy
+  after_create :create_parent
   has_many :rides, through: :users
   has_many :reviews, dependent: :destroy
   after_commit :create_parent

@@ -5,6 +5,10 @@
 import { application } from "./application"
 
 import HelloController from "./hello_controller"
-application.register("hello", HelloController);
+application.register("hello", HelloController)
 
-import { banner } from "./banner";
+import RidesController from "./rides_controller"
+application.register("rides", RidesController)
+
+import UsersController from "./users_controller"
+application.register("users", UsersController)

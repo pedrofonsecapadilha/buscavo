@@ -1,5 +1,9 @@
 <h1>show de drivers  <br><br> </h1>
 
+<div data-controller="users" data-users-target="responseList"></div>
+
+<br><br><br><br><br><br>
+
 <h2>
 1. Recebe um alerta de Pedido de Carro <br>
   - Mensagem de aceite de corrida (flash message / popup / bootstrap modal) <br><br>
@@ -9,37 +13,3 @@
   - Iniciar corrida (colocar destino da vó e iniciar corrida) <br>
   - Encaminha motorista para Waze <br>
 </h2>
-
-<%= link_to "Create Admin", class: "btn btn-lg btn-primary" do %>
-   <% Admin.create(email: "teste1500@lewagon.com", password: "123123") %>
-<% end %>
-
-<br><br><br><br><br><br>
-
-
-<h1>RECEBI O BOTÃO DA VOVÓ</h1>
-
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">!!! ATTENCION !!!<br>NEW RIDE</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <P>Hi, the USER NAME need some car, lets go?</P>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
