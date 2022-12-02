@@ -5,16 +5,19 @@
 
   <div class="form-inputs">
     <%= f.input :email, required: true, autofocus: true %>
-    <%= f.input :first_name, autofocus: true %>
-    <%= f.input :last_name, autofocus: true %>
-    <%= f.input :phone_number, autofocus: true %>
-    <%= f.input :photo, as: :file %>
-
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
-
+<%= f.input :first_name,
+                required: false,
+                input_html: { autocomplete: "new-password" } %>
+<%= f.input :last_name,
+                required: false,
+                input_html: { autocomplete: "new-password" } %>
+<%= f.input :phone_number,
+                required: false,
+                input_html: { autocomplete: "new-password" } %>
     <%= f.input :password,
                 hint: "leave it blank if you don't want to change it",
                 required: false,
@@ -26,6 +29,7 @@
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
+    <%= f.input :photo, as: :file %>
   </div>
 
   <div class="form-actions">
@@ -33,6 +37,6 @@
   </div>
 <% end %>
 
-<%= link_to "Cancel my account", admin_registration_path, data: { "turbo-confirm": "Are you sure?", "turbo-method": :delete }, class: "btn btn-danger" %>
-
-<%= link_to "Back", :back, class: "btn btn-sm btn-primary" %>
+<%= link_to "Cancel my account", driver_registration_path, data: { 'turbo-confirm': "Are you sure?", 'turbo-method': :delete}, class: "btn btn-outline-primary mb-2 mt-2"%>
+<br>
+<%= link_to "Back", :back %>
