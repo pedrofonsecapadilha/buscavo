@@ -1,21 +1,6 @@
-
 <h1>show de drivers  <br><br> </h1>
 
-<div data-controller="rides">
-  <% @rides.each do |ride| %>
-    <div data-rides-id-value="<%= ride.id %>">
-
-      <div class="rides py-4" data-rides-target="responseList">
-        <% if @ride.present? %>
-          <% @ride.notifies.each do |notify| %>
-            <%= render "rides/notify", notify: notify %>
-          <% end %>
-        <% end %>
-      </div>
-
-    </div>
-  <% end %>
-</div>
+<div data-controller="users" data-users-target="responseList"></div>
 
 <br><br><br><br><br><br>
 

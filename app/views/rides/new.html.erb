@@ -1,11 +1,8 @@
-<div data-controller="rides" data-rides-phone-value="<%= @user.phone_number %>" data-rides-id-value="<%= @ride.id %>">
+<h1>Preparing your ride...</h1>
+<br>
 
-  <h1>Preparing your trip...</h1>
-  <br>
+<div data-controller="users" data-users-target="waitingList"></div>
 
-  <div data-controller="users" data-users-target="waitingList"></div>
-
-  <div>
-    <%= link_to "Cancel trip", home_path(refeer: @admin.id) %>
-  </div>
+<div>
+  <%= link_to "Cancel trip", home_path(refeer: @admin.id) %>
 </div>
