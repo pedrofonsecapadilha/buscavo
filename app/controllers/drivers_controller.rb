@@ -9,5 +9,6 @@ class DriversController < ApplicationController
 
   def show
     @driver = current_driver
+    @rides = Ride.all
   end
 end
