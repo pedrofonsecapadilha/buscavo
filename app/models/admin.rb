@@ -7,7 +7,6 @@ class Admin < ApplicationRecord
   after_create :create_parent
   has_many :rides, through: :users
   has_many :reviews, dependent: :destroy
-  after_commit :create_parent
   has_one_attached :photo
 
   def create_parent
