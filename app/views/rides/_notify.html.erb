@@ -3,7 +3,9 @@
     <h5 class='card-title'><strong><%= notify.user.phone_number %></strong></h5>
     <h6 class='card-subtitle mb-2 text-muted'><%= notify.created_at.strftime('%a %b %e at %l:%M %p') %></h6>
     <p class='card-text'><%= notify.content %></p>
+
     <a href='/rides/<%= notify.ride.id %>' class='card-link'>Acept Ride</a>
+
     <a href='#' class='card-link'>Reject Ride</a>
   </div>
 </div>
