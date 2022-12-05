@@ -3,28 +3,45 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="users"
 export default class extends Controller {
   static targets = ["waitingList", "responseList"]
+  static values = { phone: String, id: Number }
 
   connect() {
+    setTimeout(() => {
+      this.insertInList()
+    }, 2000);
+  }
 
-    console.log("users_controller")
+  insertInList() {
+
+    console.log('fetch trip')
+
+    let formData = new FormData()
+    formData.append('phone_number', this.phoneValue)
+    formData.append('ride_id', this.idValue)
+
+    fetch("/notifies", {
+      method: "POST",
+      headers: {"Accept": "application/json"},
+      body: formData
+    })
+    .then(response => response.json())
+    .then((data) => {
+      this.responseListTarget.insertAdjacentHTML('beforeend', `<p>${data.message}</p>`)
+    })
 
     setTimeout(() => {
-      this.waitingListTarget.insertAdjacentHTML('beforeend', '<p>Calling drivers near by</p>');
+      this.waitingListTarget.insertAdjacentHTML('beforeend',
+      "<div class='m-5'><h4 class='text-center m-5'>We are looking for nearby drivers ...</h4></div>");
     }, 2000);
 
     setTimeout(() => {
-      this.waitingListTarget.insertAdjacentHTML('beforeend', '<p>Wait a moment, please</p>');
+      this.waitingListTarget.insertAdjacentHTML('beforeend',
+      "<div class='m-5'><h4 class='text-center m-5'>Wait a moment, please</h4></div>");
     }, 4000);
 
     setTimeout(() => {
-      this.waitingListTarget.insertAdjacentHTML('beforeend', '<p>Your trip is being gerated 🚕</p>');
+      this.waitingListTarget.insertAdjacentHTML('beforeend',
+      "<div class='m-5'><h4 class='text-center m-5'>Your <strong>ride</strong> is being gerated</h4></div>");
     }, 6000);
-
-    setTimeout(() => {
-      this.responseListTarget.insertAdjacentHTML('beforeend',
-      "<div class='card my-3' style='width: 18rem;' id='ride'18><div class='card-body'><h5 class='card-title'><strong>987654321</strong></h5><h6 class='card-subtitle mb-2 text-muted'></h6><p class='card-text'>Viagem da Dona Alice</p><a href='#' class='card-link'>Card link</a><a href='#' class='card-link'>Another link</a></div></div>"
-       );
-    }, 8000);
-
   }
 }
