@@ -13,5 +13,8 @@ application.register("drivers", DriversController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import LocationController from "./location_controller"
+application.register("location", LocationController)
+
 import UsersController from "./users_controller"
 application.register("users", UsersController)

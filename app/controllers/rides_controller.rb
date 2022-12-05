@@ -4,7 +4,14 @@ class RidesController < ApplicationController
   def new
     @admin = Admin.find(params[:refeer])
     @user = @admin.user.first
-    @ride = Ride.find_or_create_by(user_phone_number: @user.phone_number, user: @user, driver: Driver.first)
+    @ride = Ride.find_or_create_by(user_phone_number: @user.phone_number, user: @user, driver: Driver.first, latitude: params[:latitude] , longitude: params[:longitude])
+  end
+
+  def request
+    @admin = Admin.find(params[:refeer])
+    @user = @admin.user.first
+    raise
+    @ride = Ride.find_or_create_by(user_phone_number: @user.phone_number, user: @user, driver: Driver.first, latitude: params[:latitude] , longitude: params[:longitude])
   end
 
   def services
