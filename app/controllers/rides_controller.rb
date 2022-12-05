@@ -7,6 +7,11 @@ class RidesController < ApplicationController
     @ride = Ride.find_or_create_by(user_phone_number: @user.phone_number, user: @user, driver: Driver.first)
   end
 
+  def show
+    @ride = Ride.find(params[:id])
+    @review = Review.new
+  end
+
   def services
     @ride = Ride.last
 

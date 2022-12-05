@@ -14,7 +14,10 @@ Rails.application.routes.draw do
   resource :admins, only: :show
   resource :users
   resources :drivers, except: %i[edit update create new]
-  resources :rides
+  resources :rides do
+  resources :reviews, only: [:new, :create]
+  post '/reviews/post', to: 'reviews#post', as: "posts"
+  end
   resources :notifies, only: :create
 
   resources :reviews
