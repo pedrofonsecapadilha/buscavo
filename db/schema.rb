@@ -113,6 +113,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_180350) do
     t.datetime "updated_at", null: false
     t.string "user_phone_number"
     t.bigint "driver_id"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["driver_id"], name: "index_rides_on_driver_id"
     t.index ["user_id"], name: "index_rides_on_user_id"
   end
