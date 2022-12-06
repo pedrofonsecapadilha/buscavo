@@ -7,6 +7,11 @@ class RidesController < ApplicationController
     @admin = @user.admin
   end
 
+  def show
+    @ride = Ride.find(params[:id])
+    @review = Review.new
+  end
+
   def services
     @ride = Ride.last
 

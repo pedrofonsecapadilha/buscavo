@@ -18,3 +18,5 @@ application.register("location", LocationController)
 
 import UsersController from "./users_controller"
 application.register("users", UsersController)
+
+

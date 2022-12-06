@@ -1,0 +1,24 @@
+<div class="container mt-5">
+<h3>Your ride is finished. Make a review below</h3>
+  <%= simple_form_for ([@ride, @review]) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.input :stars, placeholder: "Rating 1-5" %>
+      <%= f.input :content %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, "Create Review", class: "btn btn-danger" %>
+    </div>
+  <% end %>
+</div>
+
+
+<div class="rating"><!--
+  --><input name="review[rating]" id="e5" type="radio" value="5"><label for="e5">★</label><!--
+        --><input name="review[rating]" id="e4" type="radio" value="4"><label for="e4">★</label><!--
+        --><input name="review[rating]" id="e3" type="radio" value="3"><label for="e3">★</label><!--
+        --><input name="review[rating]" id="e2" type="radio" value="2"><label for="e2">★</label><!--
+        --><input name="review[rating]" id="e1" type="radio" value="1"><label for="e1">★</label>
+    </div>
