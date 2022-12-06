@@ -1,5 +1,6 @@
 <div class="card text-center m-3">
 
+
   <div class="card-header">
     <h6 class='mt-2'>New Ride from <strong><%= notify.user.first_name %> <%= notify.user.last_name %></strong></h6>
   </div>
@@ -8,7 +9,7 @@
     <h5 class="card-title">Phone-number: <strong><%= notify.user.phone_number %></strong></h5>
     <p class="card-text"><%= notify.ride.start_address %></p>
 
-    <a href='/rides/<%= notify.ride.id %>' class='card-link btn btn-primary'>Aceppt Ride</a>
+    <a href='/run/<%= notify.ride.id %>' class='card-link btn btn-primary'>Aceppt Ride</a>
     <a href='#' class='card-link btn btn-danger'>Reject Ride</a>
   </div>
 

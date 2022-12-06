@@ -31,6 +31,14 @@ class RidesController < ApplicationController
     end
   end
 
+  def run
+    @ride = Ride.find(params[:id])
+    @markers = [{
+        lat: @ride.latitude,
+        lng: @ride.longitude
+    }]
+  end
+
   private
 
   def ride_params
