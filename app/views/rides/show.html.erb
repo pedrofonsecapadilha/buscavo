@@ -1,41 +1,66 @@
-<h1> Mostrar infos da corrida </h1>
+<div class="container ride-container">
+  <div class='row'>
+    <div class='col-6 d-flex align-items-end'>
+        <div class='card-ride'>
+        <div class='card-ride-content'>
+            <h1> Ride Info </h1>
 
-<div id="<%= dom_id @ride %>">
-  <p>
-    <strong>Passager phone number:</strong>
-    <%= @ride.user_phone_number %>
-  </p>
+            <div id="<%= dom_id @ride %>"> </div>
+                <h5>
+                <i class="fa-solid fa-mobile-screen-button"></i> <strong>Passager phone number:</strong>
+                  <%= @ride.user_phone_number %>
+                </h5>
 
-  <p>
-    <strong>Start address:</strong>
-    <%= @ride.start_address %>
-  </p>
+                <h5>
+                  <i class="fa-solid fa-location-arrow"></i> <strong>Start address:</strong>
+                  <%= @ride.start_address %>
+                </h5>
 
-  <p>
-    <strong>Final address:</strong>
-    <%= @ride.end_address %>
-  </p>
+                <h5>
+                <i class="fa-solid fa-location-dot"></i> <strong>Final address:</strong>
+                  <%= @ride.end_address %>
+                </h5>
 
-  <p>
-    <strong>Price:</strong>
-    <%= @ride.price %>
-  </p>
-<% if @ride.reviews.present? %>
-<% @ride.reviews.each do |review| %>
-<small> <%= review.content %> </small>
-<% end %>
-<% end %>
-  <%=  button_to "back to home", "#", class: "btn btn-success"%>
+                <h5>
+                  <i class="fa-solid fa-dollar-sign"></i> <strong>Price:</strong>
+                  <%= @ride.price %>
+                </h5>
+
+              <%=  button_to "back to home", "#", class: "btn btn-outline-success mt-5"%>
+            </div>
+            <%= image_tag 'car-photo.svg' %>
+        </div>
+    </div>
+     <%# review section %>
+    <div class='col-6 d-flex flex-column align-items-center'>
+      <% if @ride.reviews.present? %>
+      <%= render 'reviews/reviews_show_admin' %>
+      <% end %>
+
+
+
+      <% if current_driver %>
+        <% if @ride.reviews.present? %>
+          <% if @ride.reviews.last.author == 'driver' %>
+        <h5>This review has already been done </h5>
+          <% else %>
+          <h5>This review has already been done</h5>
+          <% end %>
+        <% else %>
+          <%= render "reviews/reviews_form" %>
+        <% end %>
+
+
+      <% elsif current_admin %>
+        <% if @ride.reviews.present? %>
+          <% if @ride.reviews.last.author == 'admin' %>
+          <h5>This review has already been done</h5>
+          <% else %>
+          <%= render 'reviews/reviews_admin' %>
+        <% end %>
+      <% end %>
+      <% end %>
+      </div>
+    </div>
+  </div>
 </div>
-<% if current_driver %>
-
-
-<% unless @ride.reviews.present? %>
-<%= render "reviews/reviews_form" %>
-<% end %>
-
-<% elsif current_admin %>
-<% unless current_admin.reviews.any? %>
-<%= render 'reviews/reviews_admin' %>
-<% end %>
-<% end %>
