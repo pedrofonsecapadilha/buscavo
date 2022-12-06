@@ -1,7 +1,23 @@
-<div class="text-center m-5">
+<div class="text-center m-5" data-controller="location" >
   <h2>Welcome to Buscavo, Click in the button below to call a new ride</h2>
   <div class="d-grid gap-2 col-6 mx-auto m-5">
-    <%= link_to "Call a New Ride", new_ride_path(refeer: @admin.id), class: "btn btn-primary  btn-lg rounded px-4 py-5" %>
+    <div class="col-md-3" data-controller="location" data-location-value="form" data-location-refeer-id-value="<%= @admin.id %>">
+      <h4 data-location-target="text">Buscando sua localização atual...</h4>
+        <%= simple_form_for(@ride) do |f| %>
+          <%= f.error_notification %>
+          <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+          <div class="form-inputs">
+            <%= f.input :latitude, placeholder: "Obtendo latitude...", input_html: {data: {location_target: "lat"}} %>
+            <%= f.input :longitude, placeholder: "Obtendo longitude...", input_html: {data: {location_target: "lng"}}  %>
+            <%= f.input :user_id, input_html: { value: @user.id } %>
+          </div>
+
+          <div class="form-actions">
+            <%= f.button :submit, "Call new Ride", class: "btn btn-primary btn-lg px-4 mt-4 request-submit", data: { location_target: "button" } %>
+          </div>
+      <% end %>
+    </div>
   </div>
 </div>
 
