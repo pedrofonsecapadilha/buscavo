@@ -102,8 +102,11 @@ main {
   margin: 0 0 20px 0;
 }
 
-.card-text {
+#text-l {
   color: $white;
+}
+.card-text {
+  color: $navy;
 }
 
 .card-columns h4 {
