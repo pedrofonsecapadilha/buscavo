@@ -1,0 +1,41 @@
+<h1> Mostrar infos da corrida </h1>
+
+<div id="<%= dom_id @ride %>">
+  <p>
+    <strong>Passager phone number:</strong>
+    <%= @ride.user_phone_number %>
+  </p>
+
+  <p>
+    <strong>Start address:</strong>
+    <%= @ride.start_address %>
+  </p>
+
+  <p>
+    <strong>Final address:</strong>
+    <%= @ride.end_address %>
+  </p>
+
+  <p>
+    <strong>Price:</strong>
+    <%= @ride.price %>
+  </p>
+<% if @ride.reviews.present? %>
+<% @ride.reviews.each do |review| %>
+<small> <%= review.content %> </small>
+<% end %>
+<% end %>
+  <%=  button_to "back to home", "#", class: "btn btn-success"%>
+</div>
+<% if current_driver %>
+
+
+<% unless @ride.reviews.present? %>
+<%= render "reviews/reviews_form" %>
+<% end %>
+
+<% elsif current_admin %>
+<% unless current_admin.reviews.any? %>
+<%= render 'reviews/reviews_admin' %>
+<% end %>
+<% end %>

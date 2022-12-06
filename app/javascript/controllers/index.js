@@ -15,3 +15,5 @@ application.register("hello", HelloController)
 
 import UsersController from "./users_controller"
 application.register("users", UsersController)
+
+
