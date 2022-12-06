@@ -1,7 +1,12 @@
 <div class="text-center m-5" data-controller="location" >
-  <h2>Welcome to Buscavo, Click in the button below to call a new ride</h2>
+
+  <div class="m-3">
+    <h1 class="text-center">Welcome to <strong>BuscaVó</strong></h1>
+    <h2 class="text-center m-3">🚕 Click in the <strong>button below</strong> to call a new ride 🚕 </h2>
+  </div>
+
   <div class="d-grid gap-2 col-6 mx-auto m-5">
-    <div class="col-md-3" data-controller="location" data-location-value="form" data-location-refeer-id-value="<%= @admin.id %>">
+    <div class="col-md-12" data-controller="location" data-location-value="form" data-location-refeer-id-value="<%= @admin.id %>">
       <h4 data-location-target="text">Buscando sua localização atual...</h4>
         <%= simple_form_for(@ride) do |f| %>
           <%= f.error_notification %>
@@ -14,9 +19,12 @@
           </div>
 
           <div class="form-actions">
-            <%= f.button :submit, "Call new Ride", class: "btn btn-primary btn-lg px-4 mt-4 request-submit", data: { location_target: "button" } %>
+            <%= f.button :submit, " -------->   CALL NEW RIDE   <--------", class: "btn btn-primary btn-lg px-4 mt-4", data: { location_target: "button" } %>
           </div>
+        </div>
       <% end %>
     </div>
   </div>
 </div>
+
+<%# Clica no potão e vai para o new_ride_path %>
