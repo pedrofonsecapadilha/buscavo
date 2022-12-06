@@ -6,8 +6,6 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-
-
 admin1 = Admin.create!(email: "josedeabreu@lewagon.com",
                        password: "123123",
                        first_name: "José",
@@ -48,3 +46,44 @@ notify1 = Notify.create!(content: "#{user1.first_name} #{user1.last_name} is req
                          user_id: user1.id,
                          ride_id: ride1.id
                         )
+
+admin2 = Admin.create!(email: "fernandatorres@lewagon.com",
+                       password: "123123",
+                       first_name: "Fernanda",
+                       last_name: "Torres",
+                       phone_number: "+55 11 9-2583-2583",
+                       credit_card_name: "MasterCard",
+                       credit_card_number: "1234-1234-1234-1234",
+                       credit_card_date: "10/2030",
+                       credit_card_security: "123",
+                       user_first_name: "Fernanda",
+                       user_last_name: "Montenegro",
+                       user_phone_number: "+55 11 9-3691-3691"
+                      )
+
+user2 = User.create!(phone_number: admin2.user_phone_number,
+                    admin_id: admin2.id,
+                    first_name: admin2.user_first_name,
+                    last_name: admin2.user_last_name
+                    )
+
+driver2 = Driver.create!(email: "queen@lewagon.com",
+                        password: "123123",
+                        first_name: "Queen",
+                        last_name: "Latifah",
+                        phone_number: "+55 11 9-9876-9876",
+                        wallet: 3775.00
+                        )
+
+# ride2 = Ride.create!(start_address: "R. Com. Bichara Moherdauí, nº 338, Morumbi, São Paulo, SP",
+#                     end_address: "Aeroporto Congonhas, Av. Washington Luís, Vila Congonhas, São Paulo, SP",
+#                     price: 280.00,
+#                     user_id: user2.id,
+#                     user_phone_number: user2.phone_number,
+#                     driver_id: driver2.id
+#                     )
+
+# notify2 = Notify.create!(content: "#{user2.first_name} #{user2.last_name} is requesting a ride!",
+#                         user_id: user2.id,
+#                         ride_id: ride2.id
+#                         )

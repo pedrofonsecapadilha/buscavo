@@ -26,7 +26,7 @@ class RidesController < ApplicationController
     @ride = Ride.find_or_create_by(user_phone_number: @user.phone_number, user: @user, driver: Driver.first, latitude: ride_params[:latitude] , longitude: ride_params[:longitude])
 
     respond_to do |format|
-      format.html { redirect_to new_ride_path(ride: @ride), notice: "Sua viagem foi criada com sucesso." }
+      format.html { redirect_to new_ride_path(ride: @ride) }
       format.json { render :show, status: :created, location: @ride }
     end
   end
