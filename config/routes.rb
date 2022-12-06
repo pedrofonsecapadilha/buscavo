@@ -23,6 +23,4 @@ Rails.application.routes.draw do
   get "/calls", to: "drivers#calls", as: "calls"
   get "/services", to: "rides#services", as: "services"
 
-  post "/request", to: "rides#request", as: "request"
-
 end

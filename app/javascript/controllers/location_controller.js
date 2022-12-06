@@ -2,36 +2,23 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="location"
 export default class extends Controller {
-  static targets = ["cordinates"]
-  static values = {id:Number}
+  // static targets = ["lat", "lng", "text"]
+  static values = { refeerId: Number }
 
-  connect() {
-    const successCallback = (position) => {
-      console.log(position);
-      this.cordinatesTarget.insertAdjacentHTML("beforeend", position.coords)
-    };
-
-    const errorCallback = (error) => {
-      console.log(error);
-    };
-
-    navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+  success(position) {
+    document.querySelector('[data-location-target="lat"]').value = position.coords.latitude
+    document.querySelector('[data-location-target="lng"]').value = position.coords.longitude
+    document.querySelector('[data-location-target="text"]').innerHTML = "Localização Encontrada!"
+    document.querySelector('[data-location-target="button"]').disabled = false
+  }
+  error() {
+    console.log('Please enable geolocation Services')
+    document.querySelector('[data-location-target="text"]').innerHTML = "Por favor, habilite os serviços de localização do seu navegador!"
   }
 
-  post(event) {
-    let position = navigator.geolocation.getCurrentPosition()
-    let formData = new FormData()
-    formData.append("latitude", position.coords.latitude)
-    formData.append("longitude", position.coords.longitude)
-    formData.append('refeer_id', this.idValue)
-
-    fetch("/request", {
-      method: "POST",
-      headers: {"Accept": "application/json"},
-      body: formData
-    })
-    .then(response => response.json())
-    .then((data) => {
-    })
+  connect() {
+    navigator.geolocation.getCurrentPosition(this.success, this.error)
+    // document.querySelector('.request-submit').disabled = true
+    document.querySelector('[data-location-target="button"]').disabled = true
   }
 }
