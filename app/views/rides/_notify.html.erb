@@ -9,7 +9,8 @@
     <p class="card-text"><%= notify.ride.start_address %></p>
 
     <a href='/rides/<%= notify.ride.id %>' class='card-link btn btn-primary'>Aceppt Ride</a>
-    <a href='#' class='card-link btn btn-danger'>Reject Ride</a>
+    <%= link_to "Reject Ride", notify_path(@notify), class: "card-link btn btn-danger", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%>
   </div>
 
   <div class="card-footer text-muted">

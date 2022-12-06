@@ -18,12 +18,14 @@ Rails.application.routes.draw do
   resources :reviews, only: [:new, :create]
   post '/reviews/post', to: 'reviews#post', as: "posts"
   end
-  resources :notifies, only: :create
+  resources :notifies, only: [:create, :destroy]
 
   resources :reviews
 
   get "/home", to: "users#home", as: "home"
   get "/calls", to: "drivers#calls", as: "calls"
   get "/services", to: "rides#services", as: "services"
+
+  delete "notifies/:id", to: "notifies#destroy"
 
 end
