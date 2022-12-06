@@ -34,7 +34,6 @@ export default class extends Controller {
               </div>`) // .strftime("%a %b %e at %l:%M %p")
               document.querySelector('.rides').scrollTo(0, document.querySelector('.rides').scrollHeight)
               console.log(document.querySelector('.rides').scrollHeight)
-
             })
           }
         }
