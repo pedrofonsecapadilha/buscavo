@@ -97,7 +97,7 @@
                     <input data-clipboard-target="input" type="text" value="http://localhost:3000/home?refeer=<%=@admin.id%>" readonly>
                     <button class="btn btn-sm btn-outline-primary" data-action="click->clipboard#copy"><i class="fa-regular fa-copy"></i></button>
                   </div>
-                 <%= link_to 'Edit User', edit_users_path(@admin.user), class: 'btn btn-sm btn-primary' %>
+                 <%= link_to 'Edit User', edit_user_path(@admin.user), class: 'btn btn-sm btn-primary' %>
                 </div>
               </div>
             </div>

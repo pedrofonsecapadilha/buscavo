@@ -12,11 +12,11 @@ Rails.application.routes.draw do
   root to: "pages#landing"
 
   resource :admins, only: :show
-  resource :users
+  resource :users, only: %i[create new]
   resources :drivers, except: %i[edit update create new]
   resources :rides do
-  resources :reviews, only: [:new, :create]
-  post '/reviews/post', to: 'reviews#post', as: "posts"
+    resources :reviews, only: [:new, :create]
+    post '/reviews/post', to: 'reviews#post', as: "posts"
   end
   resources :notifies, only: [:create, :destroy]
 
@@ -27,5 +27,10 @@ Rails.application.routes.draw do
   get "/services", to: "rides#services", as: "services"
 
   delete "notifies/:id", to: "notifies#destroy"
+
+  get    "users/:id/edit", to: "users#edit", as: :edit_user
+  patch  "users/:id",      to: "users#update"
+
+  get "run/:id", to: "rides#run"
 
 end

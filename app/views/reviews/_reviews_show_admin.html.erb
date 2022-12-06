@@ -2,13 +2,11 @@
   <section id="testimonials">
     <!--heading--->
     <div class="testimonial-heading">
-      <span>Reviews</span>
+      <h5> Reviews </h5>
     </div>
-     <% if @users.reviews.empty? %>
-                      <small><em class="text-muted"> No reviews about this user</em></small>
-                        <% end %>
-    <!--VERIFICAR SÉ E USER OU ADMIN QUE VAI SER AVALIADO PELO MOTORISTA------>
-    <%@user.reviews.each do |review|%>
+
+    <!-------->
+    <%@ride.reviews.each do |review|%>
     <div class="testimonial-box-container">
       <!--BOX-1-------------->
       <div class="testimonial-box">
@@ -18,16 +16,20 @@
           <div class="profile">
             <!--img---->
             <div class="profile-img">
-              <% if review.user.photo.attached? %>
+              <% if review.admin.photo.attached? %>
                 <%= cl_image_tag review.user.photo.key %>
               <% else %>
-              <%= image_tag 'profile.png' %>
+              <%= image_tag 'default.png' %>
               <% end %>
             </div>
             <!--name-and-username-->
             <div class="name-user">
-              <strong><%=review.user.first_name%></strong>
-              <span><%=review.user.phone_number%></span>
+            <% if review.author == 'admin' %>
+              <p><strong>Review by admin: </strong><%=review.admin.first_name%> <%=review.admin.last_name%></p>
+              <p><strong>User:</strong><%=review.admin.user_first_name%> <%=review.admin.user_last_name%></p>
+              <% else %>
+                   <p><strong>Review by driver: </strong><%=review.driver.first_name%> <%=review.driver.last_name%></p>
+              <% end %>
             </div>
           </div>
           <!--reviews------>
@@ -38,7 +40,11 @@
         </div>
         <!--Comments---------------------------------------->
         <div class="client-comment">
-          <p><%= review.content%></p>
+        <% if review.author == 'admin' %>
+          <strong>Coments about the driver: </strong><%= review.content%>
+          <% else %>
+          <strong>Coments about the user:  </strong><%= review.content%>
+          <% end %>
         </div>
       </div>
     <%end%>

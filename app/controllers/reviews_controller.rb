@@ -14,7 +14,8 @@ class ReviewsController < ApplicationController
     @review.admin = @admin
     @review.ride = @ride
     @review.driver = @ride.driver
-     if @review.save
+    @review.author = "admin"
+    if @review.save
       redirect_to rides_path(@ride)
     else
       redirect_to driver_path, status: :unprocessable_entity
@@ -28,6 +29,7 @@ class ReviewsController < ApplicationController
     @review.admin = @admin
     @review.ride = @ride
     @review.driver = current_driver
+    @review.author = "driver"
      if @review.save
       redirect_to rides_path(@ride)
     else
