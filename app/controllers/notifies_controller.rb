@@ -26,4 +26,10 @@ class NotifiesController < ApplicationController
     end
   end
 
+  def destroy
+    @notify = Notify.find(params[:id])
+    @notify.destroy
+    redirect_to calls_path, status: :see_other
+  end
+
 end

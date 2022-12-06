@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create]
     post '/reviews/post', to: 'reviews#post', as: "posts"
   end
-  resources :notifies, only: :create
+  resources :notifies, only: [:create, :destroy]
 
   resources :reviews
 
@@ -26,8 +26,11 @@ Rails.application.routes.draw do
   get "/calls", to: "drivers#calls", as: "calls"
   get "/services", to: "rides#services", as: "services"
 
+  delete "notifies/:id", to: "notifies#destroy"
+
   get    "users/:id/edit", to: "users#edit", as: :edit_user
   patch  "users/:id",      to: "users#update"
 
   get "run/:id", to: "rides#run"
+
 end
