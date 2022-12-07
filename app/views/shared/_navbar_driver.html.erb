@@ -1,6 +1,11 @@
 <li class="nav-item dropdown">
   <% if current_driver.photo.attached? %>
-  <%= cl_image_tag current_driver.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+  <%= cl_image_tag current_driver.photo.key,:transformation=>[
+  {:height=>50, :width=>50, :crop=>"fill", :gravity=>"face"},
+  {:radius=>"max"},
+  {:flags=>"preserve_transparency"},
+  {:effect=>"trim"}
+  ], class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
   <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
     <%# <%= link_to "Profile", drivers_path, class: "dropdown-item" %>
     <%# <%= link_to "Rides", "#", class: "dropdown-item" %>

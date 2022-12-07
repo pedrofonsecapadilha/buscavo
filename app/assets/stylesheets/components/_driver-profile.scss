@@ -1,20 +1,20 @@
 .driver {
-  background:  url('driver1.jpg') fixed;
-  width: 100vw;
-  height: 100vh;
+  // background: url('driver-photo.jpg') fixed;
+  background-color: whitesmoke;
+  width: 100%;
+  height: 100%;
   background-size: cover;
   background-repeat: repeat;
-  padding-top: 40px;
+  padding: 20px;
 }
 
 .driver-cont {
-
-  padding: 50px 0 1px 0;
+  padding: 20px 0px 20px 0px;
   background-color: $white;
   box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.362);
   border-radius: 4px;
   max-width: 800px;
-  margin: 0 auto;
+  margin: auto;
 }
 
 .cont-size {
@@ -32,9 +32,9 @@
 }
 
 #driverc{
-  padding: 40px;
+  // padding: 40px;
 }
 
 #driverb{
-  margin-top: 77px;
+  // margin-top: 77px;
 }
