@@ -13,7 +13,7 @@
 
                 <h5>
                   <i class="fa-solid fa-location-arrow"></i> <strong>Start address:</strong>
-                  <%= @ride.start_address %>
+                  <%= @ride.start_address.truncate(65) %>
                 </h5>
 
                 <h5>
@@ -26,23 +26,27 @@
                   <%= @ride.price %>
                 </h5>
 
-              <%=  button_to "back to home", "#", class: "btn btn-outline-success mt-5"%>
+              <%if current_driver %>
+                <%= link_to 'back home', drivers_path, class: 'btn btn-outline-primary' %>
+              <% else %>
+                <%= link_to 'back home', admins_path(current_admin.id), class: 'btn btn-outline-primary' %>
+              <% end %>
             </div>
             <%= image_tag 'car-photo.svg' %>
         </div>
     </div>
-     <%# review section %>
+
+
     <div class='col-6 d-flex flex-column align-items-center'>
+
       <% if @ride.reviews.present? %>
       <%= render 'reviews/reviews_show_admin' %>
       <% end %>
 
-
-
       <% if current_driver %>
         <% if @ride.reviews.present? %>
           <% if @ride.reviews.last.author == 'driver' %>
-        <h5>This review has already been done </h5>
+          <h5>This review has already been done </h5>
           <% else %>
           <h5>This review has already been done</h5>
           <% end %>
@@ -50,16 +54,18 @@
           <%= render "reviews/reviews_form" %>
         <% end %>
 
-
-      <% elsif current_admin %>
+      <% elsif current_admin && @ride.user.admin_id == current_admin.id %>
         <% if @ride.reviews.present? %>
           <% if @ride.reviews.last.author == 'admin' %>
           <h5>This review has already been done</h5>
           <% else %>
-          <%= render 'reviews/reviews_admin' %>
+            <h5>This review has already been done</h5>
         <% end %>
+        <% else %>
+        <%= render "reviews/reviews_admin" %>
       <% end %>
       <% end %>
+
       </div>
     </div>
   </div>

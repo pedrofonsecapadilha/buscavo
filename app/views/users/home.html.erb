@@ -1,16 +1,19 @@
-<div class="text-center m-5" data-controller="location" >
+<div class="text-center mb-3" data-controller="location" >
+  <div class="driver">
+    <div class="container p-3">
 
-  <div class="m-3">
-    <h1 class="text-center">Welcome to <strong>BuscaVó</strong></h1>
-    <h2 class="text-center m-3">🚕 Click in the <strong>button below</strong> to call a new ride 🚕 </h2>
-  </div>
+      <div class="row">
+        <div class="card my-3 p-3">
+          <h1 class="text-center">Welcome to <strong>BuscaVó</strong></h1>
+          <h2 class="text-center m-3">🚕 Click in the <strong>button below</strong> to call a new ride 🚕 </h2>
 
-  <div class="d-grid gap-2 col-6 mx-auto m-5">
-    <div class="col-md-12" data-controller="location" data-location-value="form" data-location-refeer-id-value="<%= @admin.id %>">
-      <h4 data-location-target="text">Buscando sua localização atual...</h4>
-        <%= simple_form_for(@ride) do |f| %>
-          <%= f.error_notification %>
-          <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+          <div class="d-grid gap-2 col-6 mx-auto m-5">
+            <div class="col-md-12" data-controller="location" data-location-value="form" data-location-refeer-id-value="<%= @admin.id %>">
+              <h4 data-location-target="text">Buscando sua localização atual...</h4>
+                <%= simple_form_for(@ride) do |f| %>
+                  <%= f.error_notification %>
+                  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
 
           <div class="form-inputs">
             <%= f.input :latitude, placeholder: "Obtendo latitude...", label: false, input_html: {data: {location_target: "lat"}, hidden: true} %>
@@ -18,13 +21,20 @@
             <%= f.input :user_id, label: false, input_html: { value: @user.id, hidden: true } %>
           </div>
 
-          <div class="form-actions">
-            <%= f.button :submit, " -------->   CALL NEW RIDE   <--------", class: "btn btn-primary btn-lg px-4 mt-4", data: { location_target: "button" } %>
+          <div class="row btn btn-primary btn-lg px-4 mt-4">
+              <div class="form-actions">
+                <%= f.button :submit, " -------->   CALL NEW RIDE   <--------", class: "btn btn-primary btn-lg", data: { location_target: "button" } %>
+              </div>
+          </div>
+
+
+                </div>
+              <% end %>
+            </div>
           </div>
         </div>
-      <% end %>
+      </div>
+
     </div>
   </div>
 </div>
-
-<%# Clica no potão e vai para o new_ride_path %>

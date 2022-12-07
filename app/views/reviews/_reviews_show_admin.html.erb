@@ -17,9 +17,11 @@
             <!--img---->
             <div class="profile-img">
               <% if review.admin.photo.attached? %>
-                <%= cl_image_tag review.user.photo.key %>
+                <%= cl_image_tag review.admin.photo.key %>
+              <% elsif review.driver.photo.attached? %>
+                <%= cl_image_tag review.driver.photo.key %>
               <% else %>
-              <%= image_tag 'default.png' %>
+                <%= image_tag 'default.png' %>
               <% end %>
             </div>
             <!--name-and-username-->

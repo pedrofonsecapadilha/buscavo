@@ -1,11 +1,20 @@
 class RidesController < ApplicationController
   protect_from_forgery with: :null_session
+  before_action :authenticate_admin!, only: :index
 
   def new
     @ride = Ride.find(params[:ride])
     @user = @ride.user
     @admin = @user.admin
   end
+
+  def index
+    @rides= Ride.where(user_id: current_admin.user.id)
+  end
+
+def old_ride_drive
+  @rides= Ride.where(driver_id: current_driver.id)
+end
 
   def show
     @ride = Ride.find(params[:id])
