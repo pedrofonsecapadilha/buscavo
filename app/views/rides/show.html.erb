@@ -23,7 +23,7 @@
 
                 <h5>
                   <i class="fa-solid fa-dollar-sign"></i> <strong>Price:</strong>
-                  <%= @ride.price %>
+                  <%= @ride.price.round(2) %>
                 </h5>
 
               <%if current_driver %>

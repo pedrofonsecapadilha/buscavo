@@ -16,14 +16,14 @@ class UsersController < ApplicationController
 
   def edit
     @admin = current_admin
-    @user = User.find_by(admin_id: @admin.id)
+    @user = User.find(params[:id])
   end
 
   def update
     @admin = current_admin
-    @user = User.find_by(admin_id: @admin.id)
+    @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to @admin, notice: "User was successfully updated."
+      redirect_to admins_path, notice: "User was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end

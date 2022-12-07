@@ -6,13 +6,12 @@ Rails.application.routes.draw do
 
   devise_scope :admins do
     get :payments, to: "admins#payments"
-    get :user, to: "admins#user"
   end
 
   root to: "pages#landing"
 
   resource :admins, only: :show
-  resource :users, only: %i[create new]
+  resources :users, except: :update
   resources :drivers, except: %i[edit update create new]
   resources :rides do
     resources :reviews, only: [:new, :create]
@@ -28,9 +27,7 @@ Rails.application.routes.draw do
   get "/driver-ride", to: "rides#old_ride_drive", as: "driverides"
   delete "notifies/:id", to: "notifies#destroy"
 
-  get    "users/:id/edit", to: "users#edit", as: :edit_user
-  patch  "users/:id",      to: "users#update"
-
-  get "run/:id", to: "rides#run"
+  patch "/users/:id", to: "users#update", as: "update_user"
+  get "run/:id", to: "rides#run", as: "run"
 
 end

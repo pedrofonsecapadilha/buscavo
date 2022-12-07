@@ -21,6 +21,22 @@ end
     @review = Review.new
   end
 
+  def edit
+    @driver = current_driver
+    @ride = Ride.find(params[:id])
+  end
+
+  def update
+    @driver = current_driver
+    @ride = Ride.find(params[:id])
+    if @ride.update(ride_params)
+      redirect_to run_path(@ride), notice: "User was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+
   def services
     @ride = Ride.last
 
