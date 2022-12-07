@@ -1,17 +1,17 @@
-<div class="container">
+<div class="driver">
+  <div class="container p-3">
 
-  <div class="m-3">
-    <h1 class="text-center">Hi, thanks for using <strong>BuscaVó</strong></h1>
-    <h2 class="text-center m-3">🚕 Now we are preparing your ride 🚕 </h2>
-  </div>
-
-  <%# Direciona para o controller stimulus USER passando PHONE E ID e chama o target WAITINGLIST %>
-  <div data-controller="users" data-users-phone-value="<%= @user.phone_number %>" data-users-id-value="<%= @ride.id%>" data-users-target="waitingList"></div>
-
-  <div>
-    <div class="d-grid gap-2 m-3">
-      <%= link_to "Cancel", home_path(refeer: @admin.id), class: "btn btn-danger btn-lg" %>
+    <div class="row">
+      <div class="card my-3 p-3">
+        <h2 class="text-center m-2">🚕 Now we are preparing your ride 🚕 </h2>
+        <div class="d-grid gap-2 col-8 mx-auto m-4">
+          <div data-controller="users" data-users-phone-value="<%= @user.phone_number %>" data-users-id-value="<%= @ride.id%>" data-users-target="waitingList"></div>
+          <div class="d-grid gap-2 m-3">
+            <%= link_to "Cancel", home_path(refeer: @admin.id), class: "btn btn-danger btn-lg" %>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
 
+  </div>
 </div>
