@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   get "/home", to: "users#home", as: "home"
   get "/calls", to: "drivers#calls", as: "calls"
   get "/services", to: "rides#services", as: "services"
-
+  get "/driver-ride", to: "rides#old_ride_drive", as: "driverides"
   delete "notifies/:id", to: "notifies#destroy"
 
   get    "users/:id/edit", to: "users#edit", as: :edit_user
