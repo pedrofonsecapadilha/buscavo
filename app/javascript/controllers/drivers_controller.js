@@ -31,7 +31,7 @@ export default class extends Controller {
               <div class="card-body">
               <h5 class="card-title">Phone-number: <strong>${data.ride.phone_number}</strong></h5>
               <p class="card-text">${data.ride.address}</p>
-              <a href='/rides/${data.ride.id}' class='card-link btn btn-primary'>Aceppt Ride</a>
+              <a href='/run/${data.ride.id}' class='card-link btn btn-primary'>Aceppt Ride</a>
               <a href='#' class='card-link btn btn-danger'>Reject Ride</a>
               </div>
               <div class="card-footer text-muted">${data.ride.created_at}</div>
