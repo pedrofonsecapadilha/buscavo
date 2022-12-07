@@ -35,7 +35,8 @@ class RidesController < ApplicationController
     @ride = Ride.find(params[:id])
     @markers = [{
         lat: @ride.latitude,
-        lng: @ride.longitude
+        lng: @ride.longitude,
+        image_url: helpers.asset_url("carro.png")
     }]
   end
 

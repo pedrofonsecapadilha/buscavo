@@ -13,9 +13,9 @@
           <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
           <div class="form-inputs">
-            <%= f.input :latitude, placeholder: "Obtendo latitude...", input_html: {data: {location_target: "lat"}} %>
-            <%= f.input :longitude, placeholder: "Obtendo longitude...", input_html: {data: {location_target: "lng"}}  %>
-            <%= f.input :user_id, input_html: { value: @user.id } %>
+            <%= f.input :latitude, placeholder: "Obtendo latitude...", label: false, input_html: {data: {location_target: "lat"}, hidden: true} %>
+            <%= f.input :longitude, placeholder: "Obtendo longitude...", label: false,  input_html: {data: {location_target: "lng"}, hidden: true}  %>
+            <%= f.input :user_id, label: false, input_html: { value: @user.id, hidden: true } %>
           </div>
 
           <div class="form-actions">
