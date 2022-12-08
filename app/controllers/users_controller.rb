@@ -47,6 +47,9 @@ class UsersController < ApplicationController
     @user = User.find_by(params[:admin_id])
   end
 
+  def end_ride
+  end
+
   private
 
   def user_params
