@@ -27,11 +27,11 @@
               </div>
               <!--name-and-username-->
               <div class="name-user">
-              <% if review.author == 'admin' %>
-                <p><strong>Review by admin: </strong><%=review.admin.first_name%> <%=review.admin.last_name%></p>
-                <p><strong>User:</strong><%=review.admin.user_first_name%> <%=review.admin.user_last_name%></p>
+                <% if review.author == 'admin' %>
+                  <p class="mt-3"><strong><%=review.admin.first_name%> <%=review.admin.last_name%></strong>(admin)</p>
+                  <p><strong>User:</strong><%=review.admin.user_first_name%> <%=review.admin.user_last_name%></p>
                 <% else %>
-                    <p><strong>Review by driver: </strong><%=review.driver.first_name%> <%=review.driver.last_name%></p>
+                  <p class="mt-3"><strong><%=review.driver.first_name%> <%=review.driver.last_name%></strong> (Driver) </p>
                 <% end %>
               </div>
             </div>
@@ -47,10 +47,12 @@
           </div>
           <!--Comments---------------------------------------->
           <div class="client-comment">
-          <% if review.author == 'admin' %>
-            <strong>Coments about the driver: </strong><%= review.content%>
+            <% if review.author == 'admin' %>
+              <p>Coments:</p>
+              <p><%= review.content%></p>
             <% else %>
-            <strong>Coments about the user:  </strong><%= review.content%>
+              <p>Coments:</p>
+              <p><%= review.content%></p>
             <% end %>
           </div>
         </div>
