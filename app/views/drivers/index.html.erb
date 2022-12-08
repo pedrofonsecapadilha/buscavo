@@ -1,58 +1,60 @@
-<div class="driver">
-  <div class="container p-3">
+<div class ="driver-prof">
+  <div class="card-prof">
+    <div class="container p-3">
 
-    <div class="row">
-      <div class="col">
-        <nav aria-label="breadcrumb" class="m-3">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Driver Profile</li>
-          </ol>
-        </nav>
-      </div>
-    </div>
-
-    <div class=" container row">
-
-      <div class="col-lg-4">
-        <div class="card">
-          <div class="card-body text-center">
-            <% if @driver.photo.attached? %>
-              <%= cl_image_tag @driver.photo.key, height: 150, width: 150, radius: :max,  crop: :fill, gravity: :face %>
-            <% else %>
-              <%= image_tag 'default.png', height: 150, width: 150, radius: :max,  crop: :fill %>
-            <% end %>
-            <h5 class="m-3"><%= "#{@driver.first_name} #{@driver.last_name}" %></h5>
-            <p class="text-muted m-2">Driver</p>
-            <div class="d-flex justify-content-center mt-4 mb-2">
-              <%= link_to 'Edit profile', edit_driver_registration_path, class: 'btn btn-outline-primary m-2' %>
-            </div>
-          </div>
+      <div class="row">
+        <div class="col">
+          <nav aria-label="breadcrumb" class="m-3">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Driver Profile</li>
+            </ol>
+          </nav>
         </div>
       </div>
 
-      <div class="col-lg-8">
+      <div class=" container row">
 
-        <div class="card mb-2 p-3">
-          <div class="card-body">
-            <div class="row">
-              <h6 class="card-text"><strong>E-mail:</strong> <%= @driver.email %></h6>
-            </div>
-            <hr>
-            <div class="row">
-              <h6 class="card-text"><strong>Phone:</strong> <%= @driver.phone_number %></h6>
+        <div class="col-lg-4">
+          <div class="card">
+            <div class="card-body text-center">
+              <% if @driver.photo.attached? %>
+                <%= cl_image_tag @driver.photo.key, height: 150, width: 150, radius: :max,  crop: :fill, gravity: :face %>
+              <% else %>
+                <%= image_tag 'default.png', height: 150, width: 150, radius: :max,  crop: :fill %>
+              <% end %>
+              <h5 class="m-3"><%= "#{@driver.first_name} #{@driver.last_name}" %></h5>
+              <p class="text-muted m-2">Driver</p>
+              <div class="d-flex justify-content-center mt-4 mb-2">
+                <%= link_to 'Edit profile', edit_driver_registration_path, class: 'btn btn-outline-primary m-2' %>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="card mb-2">
-          <h5 class="text-center mt-4 mb-3">Let's Work ?</h5>
-          <div class="d-grid gap-2 col-6 mx-auto m-4">
-            <%= link_to 'See new Rides', calls_path, class: 'btn btn-outline-primary' %>
-            <%= link_to 'Last Ride', driverides_path, class: 'btn btn-outline-primary' %>
-          </div>
-        </div>
+        <div class="col-lg-8">
 
+          <div class="card mb-2 p-3">
+            <div class="card-body">
+              <div class="row">
+                <h6 class="card-text"><strong>E-mail:</strong> <%= @driver.email %></h6>
+              </div>
+              <hr>
+              <div class="row">
+                <h6 class="card-text"><strong>Phone:</strong> <%= @driver.phone_number %></h6>
+              </div>
+            </div>
+          </div>
+
+          <div class="card mb-2">
+            <h5 class="text-center mt-4 mb-3">Let's Work ?</h5>
+            <div class="d-grid gap-2 col-6 mx-auto m-4">
+              <%= link_to 'See new Rides', calls_path, class: 'btn btn-outline-primary' %>
+              <%= link_to 'Last Ride', driverides_path, class: 'btn btn-outline-primary' %>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
   </div>
