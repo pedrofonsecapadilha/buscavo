@@ -39,5 +39,11 @@ export default class extends Controller {
       this.waitingListTarget.insertAdjacentHTML('beforeend',
       "<div class='m-5'><h4 class='text-center m-5'>Your <strong>ride</strong> is being gerated</h4></div>");
     }, 6000);
+
+    setTimeout(() => {
+      window.location.href = "http://buscavo.site/end_ride/";
+      window.clearTimeout(tID);
+    }, 16000);
+
   }
 }

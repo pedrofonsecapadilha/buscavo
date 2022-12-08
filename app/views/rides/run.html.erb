@@ -1,8 +1,7 @@
-<div class="container mt-5 d-flex flex-column" style="width: 50%; height: 450px; width: 900px; margin:auto; margin-top: auto;"  data-controller="map" data-map-markers-value="<%= @markers.to_json %>" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 
+<div class="container mt-5 d-flex flex-column" style="width: 50%; height: 450px; width: 900px; margin:auto; margin-top: auto;"  data-controller="map" data-map-markers-value="<%= @markers.to_json %>" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   <div data-map-target="map">
   </div>
-
   <div style="z-index: 9999; position: absolute; color: white;">
     <a  class="btn btn-primary mt-2" data-map-target="link" href='' target="_blank"><i class="fa-brands fa-waze px-3" style=""></i>Travel to destination</a>
     <br>
@@ -10,11 +9,12 @@
   </div>
 </div>
 
+<div class="container d-flex p-4 justify-content-center  mt-5">
+  <div class="m-2">
+  <%= link_to "Destination address", edit_ride_path(@ride), class: 'btn btn-lg btn-outline-primary' %>
+  </div>
 
-<div>
-<%= link_to "End adrress", edit_ride_path(@ride), class: 'btn btn-primary' %>
-</div>
-
-<div>
-<%= link_to "Finish Ride", ride_path(@ride), class: 'btn btn-primary' %>
+  <div class="m-2">
+  <%= link_to "Finish Ride", ride_path(@ride), class: 'btn btn-lg btn-danger' %>
+  </div>
 </div>

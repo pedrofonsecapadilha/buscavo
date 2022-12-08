@@ -45,10 +45,10 @@
 
       <% if current_driver %>
         <% if @ride.reviews.present? %>
-          <% if @ride.reviews.last.author == 'driver' %>
+          <% unless @ride.reviews.find_by(author:'driver').nil?%>
           <h5>This review has already been done </h5>
           <% else %>
-          <h5>This review has already been done</h5>
+           <%= render "reviews/reviews_form" %>
           <% end %>
         <% else %>
           <%= render "reviews/reviews_form" %>
@@ -56,10 +56,10 @@
 
       <% elsif current_admin && @ride.user.admin_id == current_admin.id %>
         <% if @ride.reviews.present? %>
-          <% if @ride.reviews.last.author == 'admin' %>
+          <% unless @ride.reviews.find_by(author:'admin').nil? %>
           <h5>This review has already been done</h5>
           <% else %>
-            <h5>This review has already been done</h5>
+            <%= render "reviews/reviews_admin" %>
         <% end %>
         <% else %>
         <%= render "reviews/reviews_admin" %>

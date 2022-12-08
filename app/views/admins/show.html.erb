@@ -90,20 +90,20 @@
                     </div>
                   </div>
                 </div>
-              <% else %>
-                <div class="card">
-                  <div class="card text-center" style="width: 100%;">
-                    <div class="card-body">
-                      <h4 class="card-title mb-3">User</h4>
-                      <h6 class="card-text">Name: <%= "#{@admin.user.first_name} #{@admin.user.last_name}" %></h6>
-                      <h6 class="card-text">Phone: <%= @admin.user.phone_number %></h6>
-                      <div class="d-flex justify-content-center" data-controller="clipboard" data-clipboard-feedback-text-value="Copied!">
-                        <input data-clipboard-target="input" type="text" value="http://localhost:3000/home?refeer=<%=@admin.id%>" readonly>
-                        <button class="btn btn-sm btn-outline-primary m-1" data-action="click->clipboard#copy"><i class="fa-regular fa-copy"></i></button>
-                      </div>
-                      <div class="d-flex justify-content-center mt-2 mb-3">
-                        <%= link_to 'Edit user', edit_user_path(id: @admin.user.id), class: 'btn btn-outline-primary' %>
-                      </div>
+              </div>
+            <% else %>
+              <div class="card">
+                <div class="card text-center" style="width: 100%;">
+                  <div class="card-body">
+                    <h4 class="card-title mb-3">User</h4>
+                    <h6 class="card-text">Name: <%= "#{@admin.user.first_name} #{@admin.user.last_name}" %></h6>
+                    <h6 class="card-text">Phone: <%= @admin.user.phone_number %></h6>
+                    <div class="d-flex justify-content-center" data-controller="clipboard" data-clipboard-feedback-text-value="Copied!">
+                      <input data-clipboard-target="input" type="text" value="buscavo.site/home?refeer=<%=@admin.id%>" readonly>
+                      <button class="btn btn-sm btn-outline-primary m-1" data-action="click->clipboard#copy"><i class="fa-regular fa-copy"></i></button>
+                    </div>
+                    <div class="d-flex justify-content-center mt-2 mb-3">
+                      <%= link_to 'Edit user', edit_user_path(id: @admin.user.id), class: 'btn btn-outline-primary' %>
                     </div>
                   </div>
                 </div>
