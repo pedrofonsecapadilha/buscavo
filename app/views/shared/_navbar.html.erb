@@ -2,19 +2,9 @@
 
   <div class="container-fluid">
 
-    <% if admin_signed_in? %>
-      <%= link_to admins_path, class: "navbar-brand" do %>
-        <%= image_tag "buscavo.png" %>
-      <% end %>
-    <% elsif driver_signed_in? %>
-      <%= link_to drivers_path, class: "navbar-brand" do %>
-        <%= image_tag "buscavo.png" %>
-      <% end %>
-    <% else %>
       <%= link_to root_path, class: "navbar-brand" do %>
         <%= image_tag "buscavo.png" %>
       <% end %>
-    <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>

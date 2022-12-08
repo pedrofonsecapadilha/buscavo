@@ -61,7 +61,7 @@ class RidesController < ApplicationController
     @markers = [{
         lat: @ride.latitude,
         lng: @ride.longitude,
-        image_url: helpers.asset_url("carro.png")
+        image_url: helpers.asset_url("pin_vovo_juju.png")
     }]
   end
 

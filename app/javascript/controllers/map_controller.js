@@ -55,8 +55,15 @@ export default class extends Controller {
      driverLocation.longitude = position.coords.longitude
      wazeLink()
      rideLocation.forEach((marker) => {
+      const customMarker = document.createElement("div")
+      customMarker.className = "marker"
+      customMarker.style.backgroundImage = `url(${marker.image_url})`
+      customMarker.style.backgroundSize = "contain"
+      customMarker.style.width = "55px"
+      customMarker.style.height = "55px"
 
-      new mapboxgl.Marker()
+
+      new mapboxgl.Marker(customMarker)
         .setLngLat([ marker.lng, marker.lat ])
         .addTo(map)
 
@@ -64,11 +71,11 @@ export default class extends Controller {
 
     const driverMarker = document.createElement("div")
     driverMarker.className = "marker"
-    driverMarker.style.backgroundImage = `url('https://media.istockphoto.com/id/926132074/pt/vetorial/car-icon.jpg?s=612x612&w=0&k=20&c=Lokre67k5UWfAkAJgVph5O6akYmRJnfTQjoozLy5EWM=')`
+    driverMarker.style.backgroundImage = `url('https://i.stack.imgur.com/wN5QD.png')`
     driverMarker.style.backgroundSize = "contain"
     driverMarker.style.width = "55px"
     driverMarker.style.height = "55px"
-    driverMarker.style.mixBlendMode = "color-burn"
+
 
       new mapboxgl.Marker(driverMarker)
       .setLngLat([position.coords.longitude, position.coords.latitude])
