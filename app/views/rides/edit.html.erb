@@ -1,4 +1,6 @@
-<%= simple_form_for @ride do |f| %>
-  <%= f.input :end_address %>
-  <%= f.submit "Update"%>
-<% end %>
+<div class="sign-up">
+  <%= simple_form_for @ride do |f| %>
+    <%= f.input :end_address %>
+    <%= f.submit "Update", class: 'btn btn-sm btn-success'%>
+  <% end %>
+</div>

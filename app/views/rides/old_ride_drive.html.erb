@@ -1,9 +1,9 @@
 <div class="container mt-2">
-  <h1> See your user last rides</h1>
+  <h1 class="text-center mb-4 mt-4"> See your last rides</h1>
     <div class='row'>
       <% @rides.each do |ride| %>
         <div class='col-6'>
-            <div class='card-ride'>
+            <div class='card-ride m-3'>
               <div class='card-ride-content'>
                 <h1> Ride Info </h1>
                 <h5>
@@ -23,7 +23,7 @@
 
                 <h5>
                   <i class="fa-solid fa-dollar-sign"></i> <strong>Price:</strong>
-                  <%= ride.price %>
+                  <%= ride.price.round(2) %>
                 </h5>
 
                 <%= link_to 'click to review', ride_path(ride), class: 'btn btn-outline-primary' %>
