@@ -9,12 +9,12 @@ class RidesController < ApplicationController
   end
 
   def index
-    @rides= Ride.where(user_id: current_admin.user.id)
+    @rides = Ride.where(user_id: current_admin.user.id)
   end
 
-def old_ride_drive
-  @rides= Ride.where(driver_id: current_driver.id)
-end
+  def old_ride_drive
+    @rides = Ride.where(driver_id: current_driver.id)
+  end
 
   def show
     @ride = Ride.find(params[:id])
