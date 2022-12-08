@@ -30,4 +30,6 @@ Rails.application.routes.draw do
   patch "/users/:id", to: "users#update", as: "update_user"
   get "run/:id", to: "rides#run", as: "run"
 
+  get "end_ride", to: "users#end_ride", as: "end_ride"
+
 end
