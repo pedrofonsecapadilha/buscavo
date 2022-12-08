@@ -17,9 +17,9 @@
             <div class="profile">
               <!--img---->
               <div class="profile-img">
-                <% if review.admin.photo.attached? %>
+                <% if review.author == 'admin' %>
                   <%= cl_image_tag review.admin.photo.key %>
-                <% elsif review.driver.photo.attached? %>
+                <% elsif review.author == 'driver' %>
                   <%= cl_image_tag review.driver.photo.key %>
                 <% else %>
                   <%= image_tag 'default.png' %>
