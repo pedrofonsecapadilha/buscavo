@@ -41,7 +41,7 @@ export default class extends Controller {
     }, 6000);
 
     setTimeout(() => {
-      window.location.href = "http://localhost:3000/end_ride/";
+      window.location.href = "http://buscavo.site/end_ride/";
       window.clearTimeout(tID);
     }, 16000);
 
