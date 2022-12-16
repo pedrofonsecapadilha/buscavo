@@ -17,6 +17,25 @@
 > Login-Driver: roberto.deniro@lewagon.com<br>
 > Password: 123123 <br>
 
+### Como funciona:
+
+> Administrador
+- Criar um cadastro
+- Cadastrar meio de pagamento
+- Cadastrar o usuário (vovô/vovó)
+- Gerar o link de acesso ao usuário
+- Tem acesso as últimas corridas do usuário
+
+> Usuário
+- Acessa o aplicativo através do link gerado pelo administrador (link permanente)
+- Solicita a corrida apenas clicando em um botão de fácil visibilidade
+
+> Driver
+- Criar um cadastro
+- Ao aceitar uma corrida, o motorista entra em contato com o usuário através de ligação, para confirmar a localização e a melhor forma de embarque. 
+- Ao chegar no ponto de partida, o motorista deve perguntar ao usuário o destino final e inserir o destino, para inicar a corrida. 
+- O motorista é responsável por finalizar a corrida.
+
 ### Ajustes e melhorias
 
 O projeto foi apresentado (09/12/2022) mas ainda pode continuar a ser desenvolvido:
