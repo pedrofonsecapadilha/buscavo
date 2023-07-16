@@ -1,7 +1,7 @@
 # BuscaVó<br>Uma maneira simples, prática e segura de locomover sua vovó !!!
 
-![GitHub repo size](https://img.shields.io/github/repo-size/duduoliveeira/buscavo?style=for-the-badge)
-![GitHub language count](https://img.shields.io/github/languages/count/duduoliveeira/buscavo?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/pedrofonsecapadilha/buscavo?style=for-the-badge)
+![GitHub language count](https://img.shields.io/github/languages/count/pedrofonsecapadilha/buscavo?style=for-the-badge)
 
 <div align="center">
 <img src="https://raw.githubusercontent.com/duduoliveeira/buscavo/master/app/assets/images/BuscaV%C3%B3_logoOficial.png" width="250px" alt="logo">
